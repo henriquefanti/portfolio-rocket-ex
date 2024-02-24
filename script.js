@@ -1,5 +1,6 @@
 //função para deslizar o botão
 function toggleMode() {
+  const html = document.documentElement
   html.classList.toggle("light")
   //Pegar a tag img
   //query pesquisar por seletor
