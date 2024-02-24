@@ -25,8 +25,8 @@ body {
   --text-color: white;
   --bg-url: url(./assets/bg-mobile.jpg);
   --stroke-color: rgba(255, 255, 255, 0.5);
-  --surface-color: rgba(255, 255, 255, 0.5);
-  --surface-color-hover: rgba(255, 255, 255, 0.2);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(255, 255, 255, 0.02);
   --highlight-color: rgba(255, 255, 255, 0.2);
   --switch-bg-url: url(./assets/MoonStars.svg);
 }
@@ -35,14 +35,15 @@ body {
   --text-color: black;
   --bg-url: url(./assets/bg-mobile-light.jpg);
   --stroke-color: rgba(0, 0, 0, 0.5);
-  --surface-color: rgba(255, 255, 255, 0.5);
-  --surface-color-hover: rgba(255, 255, 255, 0.2);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
   --highlight-color: rgba(0, 0, 0, 0.1);
   --switch-bg-url: url(./assets/Sun.svg);
 }
 
 body {
-  background: var(--bg-url) top center/cover;
+  background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh; /*view port height*/
 }
 
 body * {
@@ -96,7 +97,7 @@ body * {
   /* posicionando botão 50% acima do limite superior (top)*/
   top: 50%;
   /* posição inicial*/
-  left: 0; 
+  left: 0;
   /* camada 1 z-index:1*/
   z-index: 1;
   /* transformação do eixo y*/
@@ -104,10 +105,10 @@ body * {
 }
 
 /*Trocando o botão de lugar com o deslizamento*/
-.light #switch button P{
+.light #switch button P {
   right: 0;
   /* volta para a posição inicial*/
-  left: initial; 
+  left: initial;
 }
 
 #switch span {
@@ -177,4 +178,16 @@ footer {
   padding: 24px 0;
   text-align: center;
   font-size: 14px;
+}
+
+/* media queries @ (atrules)*/
+/* altera o background de acordo com o redimensionamento do documento*/
+@media (mid-width: 700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
 }
