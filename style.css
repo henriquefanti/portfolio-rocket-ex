@@ -102,13 +102,16 @@ body * {
   z-index: 1;
   /* transformação do eixo y*/
   transform: translateY(-50%);
+  animation: slide-back 0.2s;
 }
 
 /*Trocando o botão de lugar com o deslizamento*/
-.light #switch button P {
-  right: 0;
-  /* volta para a posição inicial*/
-  left: initial;
+.light #switch button {
+  animation: slide-in 0.4s forwards; /* forwards mantem as propriedades finais*/
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -128,7 +131,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 24px;
+  padding: 24px 0;
 }
 
 ul li a {
@@ -136,7 +139,7 @@ ul li a {
   align-items: center;
   justify-content: center;
   padding: 16px 24px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--surface-color);
   border: 1px solid solid var(--stroke-color);
   border-radius: 8px;
   backdrop-filter: blur(4px);
@@ -148,14 +151,13 @@ ul li a {
 
 /* pseudo-selector */
 ul li a:hover {
-  background: var(--highlight-color);
-  border: 1.5px solid white;
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
 }
 
 #social-links {
   display: flex;
   justify-content: center;
-  gap: 16px;
   padding: 24px 0;
   font-size: 16px;
 }
@@ -171,7 +173,6 @@ ul li a:hover {
 
 #social-links a:hover {
   background: var(--highlight-color);
-  border-radius: 50%;
 }
 
 footer {
@@ -189,5 +190,24 @@ footer {
 
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/*animation*/
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
